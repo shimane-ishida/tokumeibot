@@ -22,6 +22,9 @@ bot.on('message', (data) => {
   if(data.type !== 'message') {
     return;
   }
+  if(process.env.APP_MODE === "develop"){
+    outputLog(message);
+  }
   maskMessage(data);
 });
 
