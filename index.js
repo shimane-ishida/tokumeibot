@@ -1,6 +1,5 @@
 //ライブラリの読み込み
 const SlackBot = require('slackbots');
-const axios = require('axios');
 const dotenv = require('dotenv');
 const fs = require('fs');
 const moment = require('moment');
