@@ -1,4 +1,4 @@
-SlackBot for MAGI SYSTEM(仮)
+SlackBot 匿名くん(仮)
 ===
 
 # 概要
