@@ -22,9 +22,6 @@ bot.on('message', (data) => {
   if(data.type !== 'message') {
     return;
   }
-  if(process.env.APP_MODE === "develop"){
-    outputLog(message);
-  }
   maskMessage(data);
 });
 
@@ -36,6 +33,9 @@ function maskMessage(message){
   if(message.text === undefined){
     //ボット向け新規投稿以外は無視する
     return;
+  }
+  if(process.env.APP_MODE === "develop"){
+    outputLog(message);
   }
   //処理
   if(message.text.includes(BOT_NAME)){
