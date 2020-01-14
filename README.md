@@ -17,9 +17,14 @@ v10.16.0
 v2.0.0
 
 ## トークン設定
+
 https://api.slack.com/apps
 ここからAppNameをクリックして、左メニュー「Install App」から「Bot User OAuth Access Token」の値をコピー
 .env.orgを.envにリネーム後コピーしたトークンを貼り付け
+
+## APP_MODE設定
+
+developになってるとチャンネルに投稿はしないのでproductionなどに変更する
 
 ## 実行
 

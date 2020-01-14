@@ -5,15 +5,14 @@ const fs = require('fs');
 const moment = require('moment');
 dotenv.config();
 
-const APP_NAME = 'magi';
 const SLACK_CHANEL = '匿名チャンネル'; //https://slack.com/api/channels.list?token=token
 const ICONS = [':yum:', ':grin:', ':innocent:', ':wink:', ':cry:', ':joy:', ':expressionless:'];
-const BOT_NAME = '<@USM2N0ELD> '; //ボットの宛先
+const BOT_NAME = process.env.BOT_NAME; //ボットの宛先 https://api.slack.com/apps
 
 //botインスタンスの作成
 const bot = new SlackBot({
   token: `${process.env.TOKEN}`,  //.envファイルのトークンを参照
-  name: APP_NAME
+  name: `${process.env.APP_NAME}`
 });
 
 /**
@@ -46,11 +45,13 @@ function maskMessage(message){
     var res = `匿名投稿： ${message.text.replace(BOT_NAME, "")}\n`;
     res += `投稿日： ${now.format('YYYY-MM-DD H:mm:ss').toString()}`;
     // チャンネルに投稿
-    bot.postMessageToChannel(
-      SLACK_CHANEL,
-      res,
-      icon
-    );
+    if(process.env.APP_MODE !== "develop"){
+      bot.postMessageToChannel(
+        SLACK_CHANEL,
+        res,
+        icon
+      );
+    }
   }
 }
 
