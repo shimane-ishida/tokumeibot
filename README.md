@@ -16,6 +16,11 @@ v10.16.0
 * forever version
 v2.0.0
 
+## トークン設定
+https://api.slack.com/apps
+ここからAppNameをクリックして、左メニュー「Install App」から「Bot User OAuth Access Token」の値をコピー
+.env.orgを.envにリネーム後コピーしたトークンを貼り付け
+
 ## 実行
 
 アプリケーションディレクトリで下記のコマンドを実行する
