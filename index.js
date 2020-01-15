@@ -45,8 +45,10 @@ function maskMessage(message){
     outputLog(message);
     // 宛先（ボット名）を削除してテキストを取得
     var now = moment();
-    var res = `匿名投稿： ${message.text.replace(BOT_NAME, "")}\n`;
-    res += `投稿日： ${now.format('YYYY-MM-DD H:mm:ss').toString()}`;
+    var res = "";
+    res +=  `投稿日： ${now.format('YYYY-MM-DD H:mm:ss').toString()}\n`;
+    res += `匿名投稿： ${message.text.replace(BOT_NAME, "")}\n`;
+    res += `-------------------------------------------`;
     // チャンネルに投稿
     if(process.env.APP_MODE !== "develop"){
       bot.postMessageToChannel(
